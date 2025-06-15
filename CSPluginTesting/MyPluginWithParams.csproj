@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <AssemblyName>MyPluginWithParams</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="MyPluginWithParams.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CSMainAPI" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
