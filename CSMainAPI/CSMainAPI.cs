@@ -58,15 +58,5 @@ namespace CSMainAPI
 
             _resultCallback(data);
         }
-
-        /// <summary>
-        /// Gets the standard entry point method name for plugins
-        /// </summary>
-        public static string GetEntryPointName() => "ExecutePlugin";
-
-        /// <summary>
-        /// Gets the standard entry point method name for plugins with parameters
-        /// </summary>
-        public static string GetEntryPointWithParamsName() => "ExecutePlugin";
     }
 }

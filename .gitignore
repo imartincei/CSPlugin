@@ -352,7 +352,12 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-CSMain/obj
-CSPlugin/obj
+CSPluginTesting/obj
+CSPluginTesting/bin
+CSPluginTesting/.vs
 CSMain/obj
 CSMain/bin
+CSMain/.vs
+CSMainAPI/obj
+CSMainAPI/bin
+CSMainAPI/.vs
