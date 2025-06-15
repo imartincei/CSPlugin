@@ -40,8 +40,8 @@ public class MyPlugin : ICSPlugin
             new string[] { "Data", "Generated", DateTime.Now.ToString() }
         };
         
-        // Send result back to CSMain
-        CSMainAPI.SendResult(result);
+        // Send result back to CSMain (simplified syntax)
+        SendResult(result);
     }
 }
 ```
@@ -64,8 +64,8 @@ public class MyPluginWithParams : ICSPluginWithParams
             new string[] { "Timestamp", DateTime.Now.ToString(), "processed" }
         };
         
-        // Send result back to CSMain
-        CSMainAPI.SendResult(result);
+        // Send result back to CSMain (simplified syntax)
+        SendResult(result);
     }
 }
 ```
@@ -104,12 +104,13 @@ public interface ICSPluginWithParams
 
 ## API Methods
 
-### CSMainAPI.SendResult(string[][] data)
+### SendResult(string[][] data)
 Sends result data back to the CSMain application:
 - **Parameter:** `data` - A jagged string array containing the result data
 - **Usage:** Call this method to return results from your plugin to CSMain
+- **Note:** No namespace prefix required due to global static using
 
-### CSMainAPI.Initialize(Action<string[][]> callback)
+### Initialize(Action<string[][]> callback)
 *Used internally by CSMain - not needed in plugins*
 
 ## Best Practices
@@ -138,7 +139,7 @@ MyPlugin/
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSMainAPI" Version="1.0.0" />
+    <PackageReference Include="CSMainAPI" Version="1.0.3" />
   </ItemGroup>
 </Project>
 ```
@@ -172,7 +173,7 @@ public async Task ExecutePlugin()
     {
         // Your plugin logic
         var result = await ProcessDataAsync();
-        CSMainAPI.SendResult(result);
+        SendResult(result);
     }
     catch (Exception ex)
     {
@@ -181,7 +182,7 @@ public async Task ExecutePlugin()
             new string[] { "Error", "Exception", ex.Message },
             new string[] { "Type", ex.GetType().Name, "Failed" }
         };
-        CSMainAPI.SendResult(errorResult);
+        SendResult(errorResult);
     }
 }
 ```
