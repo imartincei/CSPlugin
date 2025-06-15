@@ -351,8 +351,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-CSMain/obj/Debug/net8.0
-obj
+
+CSMain/obj
 CSPlugin/obj
 CSMain/obj
-CSMain/bin/Debug/net8.0
+CSMain/bin
