@@ -139,7 +139,7 @@ MyPlugin/
     <OutputType>Library</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="CSMainAPI" Version="1.0.3" />
+    <PackageReference Include="CSMainAPI" Version="1.0.4" />
   </ItemGroup>
 </Project>
 ```

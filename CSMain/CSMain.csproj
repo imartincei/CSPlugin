@@ -12,7 +12,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CSMainAPI" Version="1.0.3" />
+    <PackageReference Include="CSMainAPI" Version="1.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="CSMainAPI" Global="true" />
+    <Using Include="CSMainAPI.CSMainAPI" Global="true" Static="true" />
   </ItemGroup>
 
 </Project>
