@@ -1,18 +1,28 @@
 ﻿using System.Reflection;
 using System.Text.Json;
 
-if (args.Length == 0)
+Console.WriteLine("CSMain - Interactive Plugin Loader");
+Console.WriteLine("===================================");
+
+// Get DLL filename
+string dllFilename;
+if (args.Length > 0)
 {
-    Console.WriteLine("Usage: CSMain <dll-filename> [json-data|json-file]");
-    Console.WriteLine("Example: CSMain CSPlugin.dll");
-    Console.WriteLine("Example: CSMain CSPlugin.dll '{\"key\":\"value\"}'");
-    Console.WriteLine("Example: CSMain CSPlugin.dll sample.json");
-    return;
+    dllFilename = args[0];
+}
+else
+{
+    Console.Write("Enter DLL filename (or press Enter for 'CSPlugin.dll'): ");
+    string? input = Console.ReadLine();
+    dllFilename = string.IsNullOrWhiteSpace(input) ? "CSPlugin.dll" : input;
 }
 
-string dllPath = args[0];
-string? jsonData = null;
+// Construct full path to DLL in Plugins folder
+string dllPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Plugins", dllFilename);
+Console.WriteLine($"Looking for plugin at: {dllPath}");
 
+// Get JSON data
+string? jsonData = null;
 if (args.Length > 1)
 {
     string jsonInput = args[1];
@@ -29,10 +39,29 @@ if (args.Length > 1)
         jsonData = jsonInput;
     }
 }
+else
+{
+    Console.Write("Enter JSON data (or press Enter to skip): ");
+    string? input = Console.ReadLine();
+    if (!string.IsNullOrWhiteSpace(input))
+    {
+        // Check if the input is a file path
+        if (File.Exists(input))
+        {
+            Console.WriteLine($"Loading JSON from file: {input}");
+            jsonData = File.ReadAllText(input);
+        }
+        else
+        {
+            // Treat as inline JSON data
+            jsonData = input;
+        }
+    }
+}
 
 if (!File.Exists(dllPath))
 {
-    Console.WriteLine($"Error: File '{dllPath}' not found.");
+    Console.WriteLine($"Error: Plugin '{dllFilename}' not found in Plugins folder.");
     return;
 }
 
