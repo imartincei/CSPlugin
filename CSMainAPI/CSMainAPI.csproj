@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <OutputType>Library</OutputType>
+    <AssemblyName>CSMainAPI</AssemblyName>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    
+    <!-- NuGet Package Configuration -->
+    <PackageId>CSMainAPI</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>CSPlugin Framework</Authors>
+    <Company>CSPlugin Framework</Company>
+    <Description>Plugin API framework for CSMain application. Provides interfaces and callback mechanisms for creating async plugins.</Description>
+    <PackageTags>plugin;api;framework;csmain;async</PackageTags>
+    <PackageProjectUrl>https://github.com/imartincei/CSPlugin</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/imartincei/CSPlugin</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="CSMainAPI.cs" />
+  </ItemGroup>
+
+</Project>

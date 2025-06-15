@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="CSMainAPI.csproj" />
+    <PackageReference Include="CSMainAPI" Version="1.0.0" />
   </ItemGroup>
 
 </Project>

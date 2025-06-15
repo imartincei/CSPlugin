@@ -26,7 +26,7 @@ namespace MyPlugin
             };
 
             // Send result back to CSMain using the API
-            CSMainAPI.SendResult(resultData);
+            CSMainAPI.CSMainAPI.SendResult(resultData);
         }
     }
 
@@ -54,7 +54,7 @@ namespace MyPlugin
             };
 
             // Send result back to CSMain using the API
-            CSMainAPI.SendResult(resultData);
+            CSMainAPI.CSMainAPI.SendResult(resultData);
         }
     }
 }

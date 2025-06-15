@@ -40,3 +40,7 @@ The main library (`CSPlugin`) exposes a `DataProvider` class with a static `GetR
 ## Memories
 
 - Use main instead of master
+- CSMain is an .exe file
+- CSMain will be a completely separate software from CSPlugin
+- CSPlugin is used to generate plugins that can be used by CSMain
+- CSMainAPI is a library needs to be used by plugin dlls and stored somewhere in the CSMain architecture
