@@ -28,7 +28,7 @@ namespace MyPluginWithParams
             };
 
             // Send result back to CSMain using the API
-            CSMainAPI.CSMainAPI.SendResult(resultData);
+            SendResult(resultData);
         }
     }
 }
