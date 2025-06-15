@@ -10,7 +10,7 @@
     
     <!-- NuGet Package Configuration -->
     <PackageId>CSMainAPI</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.0.1</Version>
     <Authors>CSPlugin Framework</Authors>
     <Company>CSPlugin Framework</Company>
     <Description>Plugin API framework for CSMain application. Provides interfaces and callback mechanisms for creating async plugins.</Description>
@@ -22,10 +22,15 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Include="CSMainAPI.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>

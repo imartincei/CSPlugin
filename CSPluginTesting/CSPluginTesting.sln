@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSPlugin", "CSPlugin.csproj", "{0662A971-DFFD-4B9B-A673-39D1E0F1856F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSPluginTesting", "CSPluginTesting.csproj", "{0662A971-DFFD-4B9B-A673-39D1E0F1856F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManager", "DataManager.csproj", "{A4620911-1127-4F94-AE2F-EA22BC1EF9AF}"
 EndProject
