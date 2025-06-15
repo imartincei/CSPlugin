@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Text.Json;
+using CSMainAPI;
 
 Console.WriteLine("CSMain - Interactive Plugin Loader");
 Console.WriteLine("===================================");
@@ -75,83 +76,75 @@ try
     // Load the assembly
     Assembly assembly = Assembly.LoadFrom(dllPath);
     
-    // Find types that have a GetResult method (sync or async)
+    // Set up CSMainAPI callback to capture results
+    string[][]? pluginResult = null;
+    CSMainAPI.CSMainAPI.Initialize(result => {
+        pluginResult = result;
+    });
+    
+    // Find CSMainAPI plugins
     foreach (Type type in assembly.GetTypes())
     {
-        MethodInfo? getResultMethod = null;
+        // Check if type implements ICSPlugin or ICSPluginWithParams
+        bool implementsICSPlugin = typeof(ICSPlugin).IsAssignableFrom(type);
+        bool implementsICSPluginWithParams = typeof(ICSPluginWithParams).IsAssignableFrom(type);
         
-        // Look for methods with different parameter signatures
-        if (jsonData != null)
+        if (implementsICSPlugin || implementsICSPluginWithParams)
         {
-            // First try to find methods that accept a string parameter (for JSON)
-            getResultMethod = type.GetMethod("GetResultAsync", BindingFlags.Public | BindingFlags.Static, null, new[] { typeof(string) }, null) ??
-                             type.GetMethod("GetResult", BindingFlags.Public | BindingFlags.Static, null, new[] { typeof(string) }, null);
-        }
-        
-        // Fallback to parameterless methods
-        if (getResultMethod == null)
-        {
-            getResultMethod = type.GetMethod("GetResultAsync", BindingFlags.Public | BindingFlags.Static, null, Type.EmptyTypes, null) ??
-                             type.GetMethod("GetResult", BindingFlags.Public | BindingFlags.Static, null, Type.EmptyTypes, null);
-        }
-        
-        if (getResultMethod != null)
-        {
-            Console.WriteLine($"Found GetResult method in {type.FullName}");
+            Console.WriteLine($"Found CSMainAPI plugin: {type.FullName}");
             
-            // Prepare parameters
-            object?[] parameters = Array.Empty<object>();
-            if (getResultMethod.GetParameters().Length > 0)
+            // Error if plugin implements both interfaces
+            if (implementsICSPlugin && implementsICSPluginWithParams)
+            {
+                Console.WriteLine($"Error: Plugin {type.FullName} implements both ICSPlugin and ICSPluginWithParams. A plugin must implement only one interface.");
+                return;
+            }
+            
+            // Create instance of the plugin
+            object? pluginInstance = Activator.CreateInstance(type);
+            if (pluginInstance == null)
+            {
+                Console.WriteLine($"Failed to create instance of {type.FullName}");
+                continue;
+            }
+            
+            // Execute the appropriate method
+            if (implementsICSPluginWithParams)
             {
                 if (jsonData != null)
                 {
-                    Console.WriteLine("Passing JSON data to method");
-                    parameters = new object?[] { jsonData };
+                    Console.WriteLine("Executing CSMainAPI plugin with parameters...");
+                    var pluginWithParams = (ICSPluginWithParams)pluginInstance;
+                    await pluginWithParams.ExecutePlugin(jsonData);
                 }
                 else
                 {
-                    Console.WriteLine("Method expects parameters but none provided");
-                    continue;
+                    Console.WriteLine("Error: Plugin implements ICSPluginWithParams but no JSON data provided");
+                    return;
                 }
             }
-            
-            // Check if the method is async
-            bool isAsync = getResultMethod.ReturnType.IsGenericType && 
-                          getResultMethod.ReturnType.GetGenericTypeDefinition() == typeof(Task<>);
-            
-            if (isAsync)
+            else if (implementsICSPlugin)
             {
-                Console.WriteLine("Method is async, awaiting result...");
-                
-                // Invoke the async method
-                dynamic? task = getResultMethod.Invoke(null, parameters);
-                
-                if (task != null)
-                {
-                    // Wait for the task to complete and get the result
-                    await task;
-                    object? result = task.Result;
-                    
-                    // Display the result
-                    DisplayResult(result);
-                }
+                Console.WriteLine("Executing CSMainAPI plugin without parameters...");
+                var plugin = (ICSPlugin)pluginInstance;
+                await plugin.ExecutePlugin();
+            }
+            
+            // Display result from callback
+            if (pluginResult != null)
+            {
+                DisplayResult(pluginResult);
+                return;
             }
             else
             {
-                Console.WriteLine("Method is synchronous, executing...");
-                
-                // Invoke the synchronous method
-                object? result = getResultMethod.Invoke(null, parameters);
-                
-                // Display the result
-                DisplayResult(result);
+                Console.WriteLine("Plugin executed but no result was sent via CSMainAPI.SendResult");
+                return;
             }
-            
-            return;
         }
     }
     
-    Console.WriteLine("No GetResult method found in the assembly.");
+    Console.WriteLine("No CSMainAPI plugins found in the assembly.");
 }
 catch (Exception ex)
 {
