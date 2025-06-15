@@ -13,9 +13,9 @@ if (args.Length > 0)
 }
 else
 {
-    Console.Write("Enter DLL filename (or press Enter for 'CSPlugin.dll'): ");
+    Console.Write("Enter DLL filename: ");
     string? input = Console.ReadLine();
-    dllFilename = string.IsNullOrWhiteSpace(input) ? "CSPlugin.dll" : input;
+    dllFilename = string.IsNullOrWhiteSpace(input) ? "no input" : input;
 }
 
 // Construct full path to DLL in Plugins folder
