@@ -30,7 +30,7 @@ namespace CSPlugin
         public static async Task<string[][]> GetResultAsync(string jsonData)
         {
             // Simulate async work
-            await Task.Delay(500);
+            await Task.Delay(5000);
             
             return new string[][]
             {

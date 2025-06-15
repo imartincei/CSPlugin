@@ -1,5 +1,0 @@
-/home/isaiahmartin/CSPlugin/publish/CSMain
-/home/isaiahmartin/CSPlugin/publish/CSMain.dll
-/home/isaiahmartin/CSPlugin/publish/CSMain.deps.json
-/home/isaiahmartin/CSPlugin/publish/CSMain.runtimeconfig.json
-/home/isaiahmartin/CSPlugin/publish/CSMain.pdb
