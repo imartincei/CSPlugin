@@ -78,7 +78,7 @@ try
     
     // Set up CSMainAPI callback to capture results
     string[][]? pluginResult = null;
-    CSMainAPI.CSMainAPI.Initialize(result => {
+    Initialize(result => {
         pluginResult = result;
     });
     
