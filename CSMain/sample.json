@@ -1,0 +1,33 @@
+{
+  "configuration": {
+    "environment": "development",
+    "version": "1.0.0",
+    "debug": true
+  },
+  "data": {
+    "users": [
+      {
+        "id": 1,
+        "name": "John Doe",
+        "email": "john@example.com",
+        "active": true
+      },
+      {
+        "id": 2,
+        "name": "Jane Smith",
+        "email": "jane@example.com",
+        "active": false
+      }
+    ],
+    "settings": {
+      "maxRetries": 3,
+      "timeout": 5000,
+      "enableLogging": true
+    }
+  },
+  "metadata": {
+    "timestamp": "2025-06-15T09:00:00Z",
+    "source": "sample-data",
+    "schema_version": "v1.2"
+  }
+}

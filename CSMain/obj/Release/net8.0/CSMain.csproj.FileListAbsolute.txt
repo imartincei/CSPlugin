@@ -1,0 +1,14 @@
+/home/isaiahmartin/CSPlugin/CSMain/bin/Release/net8.0/CSMain
+/home/isaiahmartin/CSPlugin/CSMain/bin/Release/net8.0/CSMain.deps.json
+/home/isaiahmartin/CSPlugin/CSMain/bin/Release/net8.0/CSMain.runtimeconfig.json
+/home/isaiahmartin/CSPlugin/CSMain/bin/Release/net8.0/CSMain.dll
+/home/isaiahmartin/CSPlugin/CSMain/bin/Release/net8.0/CSMain.pdb
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.GeneratedMSBuildEditorConfig.editorconfig
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.AssemblyInfoInputs.cache
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.AssemblyInfo.cs
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.csproj.CoreCompileInputs.cache
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.dll
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/refint/CSMain.dll
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.pdb
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/CSMain.genruntimeconfig.cache
+/home/isaiahmartin/CSPlugin/CSMain/obj/Release/net8.0/ref/CSMain.dll

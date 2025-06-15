@@ -1,0 +1,4 @@
+/home/isaiahmartin/CSPlugin/obj/Debug/net8.0/CSPlugin.GeneratedMSBuildEditorConfig.editorconfig
+/home/isaiahmartin/CSPlugin/obj/Debug/net8.0/CSPlugin.AssemblyInfoInputs.cache
+/home/isaiahmartin/CSPlugin/obj/Debug/net8.0/CSPlugin.AssemblyInfo.cs
+/home/isaiahmartin/CSPlugin/obj/Debug/net8.0/CSPlugin.csproj.CoreCompileInputs.cache
