@@ -36,3 +36,7 @@ dotnet clean
 ## Architecture
 
 The main library (`CSPlugin`) exposes a `DataProvider` class with a static `GetResult()` method that returns a jagged string array containing sample data. This appears to be a plugin-style architecture where the library provides data services that can be consumed by applications like the CSMain console app.
+
+## Memories
+
+- Use main instead of master

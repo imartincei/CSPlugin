@@ -26,3 +26,5 @@
 /home/isaiahmartin/CSPlugin/CSMain/obj/Debug/net8.0/CSMain.pdb
 /home/isaiahmartin/CSPlugin/CSMain/obj/Debug/net8.0/CSMain.genruntimeconfig.cache
 /home/isaiahmartin/CSPlugin/CSMain/obj/Debug/net8.0/ref/CSMain.dll
+/home/isaiahmartin/CSPlugin/CSMain/obj/Debug/net8.0/CSMain.sourcelink.json
+/home/isaiahmartin/CSPlugin/CSMain/bin/Debug/net8.0/Plugins/CSPlugin.dll
